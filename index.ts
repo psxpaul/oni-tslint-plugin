@@ -127,7 +127,19 @@ const activate = (oni: Oni.Plugin.Api): void => {
                             character: error.endPosition.character
                         }
                     }
-                }));
+                })).sort((a, b) => {
+                    if (a.range.start.line > b.range.start.line) {
+                        return 1;
+                    } else if (a.range.start.line < b.range.start.line) {
+                        return -1;
+                    } else if (a.range.start.character > b.range.start.character) {
+                        return 1;
+                    } else if (a.range.start.character < b.range.start.character) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                });
 
                 const errors: DiagnosticsByFile = errorsWithFileName.reduce((prev: any, curr: any) => {
                     prev[curr.file] = prev[curr.file] || [];
