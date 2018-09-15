@@ -14,7 +14,7 @@
         "object-literal-key-quotes": false,
         "object-literal-sort-keys": false,
         "quotemark": [true, "single", "jsx-double", "avoid-escape"],
-        "semicolon": false,
+        "semicolon": true,
         "interface-name": [false],
         "variable-name": [
             true,
